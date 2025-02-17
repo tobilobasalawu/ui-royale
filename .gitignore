@@ -42,4 +42,6 @@ next-env.d.ts
 
 #firebase
 /firebase.ts
+/firestore.ts
 src/lib/firebase.ts
+src/lib/firestore.ts

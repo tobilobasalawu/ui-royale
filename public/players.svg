@@ -1,0 +1,34 @@
+<svg width="154" height="91" viewBox="0 0 154 91" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_11_2561)">
+<g filter="url(#filter0_f_11_2561)">
+<ellipse cx="108.585" cy="44.522" rx="43" ry="44" fill="white" fill-opacity="0.3"/>
+</g>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M109 46.9333C116.574 46.9333 122.714 40.7548 122.714 33.1333C122.714 25.5117 116.574 19.3333 109 19.3333C101.426 19.3333 95.2857 25.5117 95.2857 33.1333C95.2857 40.7548 101.426 46.9333 109 46.9333ZM77 88.3333C77 70.5497 91.3269 56.1333 109 56.1333C126.673 56.1333 141 70.5497 141 88.3333L77 88.3333Z" fill="#888888" fill-opacity="0.5"/>
+<path d="M153.585 45.522C153.585 70.3748 133.438 90.522 108.585 90.522C83.7319 90.522 63.5847 70.3748 63.5847 45.522C63.5847 20.6692 83.7319 0.521973 108.585 0.521973C133.438 0.521973 153.585 20.6692 153.585 45.522ZM66.0721 45.522C66.0721 69.001 85.1056 88.0346 108.585 88.0346C132.064 88.0346 151.097 69.001 151.097 45.522C151.097 22.0429 132.064 3.00935 108.585 3.00935C85.1056 3.00935 66.0721 22.0429 66.0721 45.522Z" fill="#FFDA7D"/>
+</g>
+<g clip-path="url(#clip1_11_2561)">
+<g filter="url(#filter1_f_11_2561)">
+<ellipse cx="45.5847" cy="44.522" rx="43" ry="44" fill="white" fill-opacity="0.3"/>
+</g>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M46 46.9333C53.5744 46.9333 59.7143 40.7548 59.7143 33.1333C59.7143 25.5117 53.5744 19.3333 46 19.3333C38.4258 19.3333 32.2857 25.5117 32.2857 33.1333C32.2857 40.7548 38.4258 46.9333 46 46.9333ZM14 88.3333C14 70.5497 28.3269 56.1333 46 56.1333C63.6731 56.1333 78 70.5497 78 88.3333L14 88.3333Z" fill="#888888" fill-opacity="0.5"/>
+<path d="M90.5847 45.522C90.5847 70.3748 70.4375 90.522 45.5847 90.522C20.7319 90.522 0.584717 70.3748 0.584717 45.522C0.584717 20.6692 20.7319 0.521973 45.5847 0.521973C70.4375 0.521973 90.5847 20.6692 90.5847 45.522ZM3.07209 45.522C3.07209 69.001 22.1056 88.0346 45.5847 88.0346C69.0638 88.0346 88.0973 69.001 88.0973 45.522C88.0973 22.0429 69.0638 3.00935 45.5847 3.00935C22.1056 3.00935 3.07209 22.0429 3.07209 45.522Z" fill="#C2BAF5"/>
+</g>
+<defs>
+<filter id="filter0_f_11_2561" x="61.5847" y="-3.47803" width="94" height="96" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="2" result="effect1_foregroundBlur_11_2561"/>
+</filter>
+<filter id="filter1_f_11_2561" x="-1.41528" y="-3.47803" width="94" height="96" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="2" result="effect1_foregroundBlur_11_2561"/>
+</filter>
+<clipPath id="clip0_11_2561">
+<rect x="63.5847" y="0.521973" width="90" height="90" rx="45" fill="white"/>
+</clipPath>
+<clipPath id="clip1_11_2561">
+<rect x="0.584717" y="0.521973" width="90" height="90" rx="45" fill="white"/>
+</clipPath>
+</defs>
+</svg>

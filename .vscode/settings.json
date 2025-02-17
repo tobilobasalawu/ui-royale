@@ -10,5 +10,8 @@
     "prettier.htmlWhitespaceSensitivity": "strict",
     "prettier.singleAttributePerLine": true,
     "prettier.trailingComma": "es5",
-    "prettier.semi": true
+    "prettier.semi": true,
+    "files.associations": {
+        "*.css": "tailwindcss"
+    }
 }

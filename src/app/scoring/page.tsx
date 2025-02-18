@@ -7,14 +7,18 @@ export default function ScoringPage() {
   const [scoreText, setScoreText] = useState("Scoring designs...");
   const router = useRouter(); // ✅ Works in App Router
 
+  const SCORE_TIMEOUT_DURATION = 5000; // Define timeout duration for score
+  const REDIRECT_TIMEOUT_DURATION = 10000; // Define timeout duration for redirect
+
   useEffect(() => {
     const timer = setTimeout(() => {
-      setScoreText("Score 2/100😂");
-    }, 3000);
+      const randomScore = Math.floor(Math.random() * 20) + 1; // Generate random score between 1 and 20
+      setScoreText(`Your Score (By AI): ${randomScore}/100😂`); // Update score text with random score
+    }, SCORE_TIMEOUT_DURATION);
 
     const redirectTimer = setTimeout(() => {
       router.push("/outcome"); // ✅ Navigation works now
-    }, 5000);
+    }, REDIRECT_TIMEOUT_DURATION);
 
     return () => {
       clearTimeout(timer);

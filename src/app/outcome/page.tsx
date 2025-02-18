@@ -9,7 +9,7 @@ export default function OutcomePage() {
       <div className="flex flex-col items-center space-y-6 max-w-[400px] w-full">
         <div className="w-full bg-[#1A1A1A] rounded-xl p-6 flex flex-col items-center space-y-6">
           <h1 className="text-white text-4xl font-marcellus flex items-center gap-2">
-            You Lost!
+            Bruh, You Lost!
             <span
               role="img"
               aria-label="skull"

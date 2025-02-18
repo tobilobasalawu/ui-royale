@@ -56,7 +56,7 @@ export function Header({
         <div className="flex items-center space-x-2 w-[108px]">
           {/* Depth 3: Player 1 Frame */}
           <div className="flex items-center justify-center w-9 h-9 rounded-full bg-[#adaef8]">
-            {"T"}
+            {"U"}
           </div>
 
           {/* Depth 3: VS Text */}

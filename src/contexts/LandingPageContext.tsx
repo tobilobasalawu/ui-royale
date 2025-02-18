@@ -48,7 +48,7 @@ export function LandingPageContextProvider({
     const inviteLink = `${window.location.origin}/lobby?lobbyCode=${uniqueId}`;
 
     navigator.clipboard.writeText(inviteLink).then(() => {
-      alert("Invite link copied! Open it.");
+      alert("Invite link copied! Open the link in a new tab.");
     });
 
     setPlayerOne({ name: playerOne.name, id: uniqueId });

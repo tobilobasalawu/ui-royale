@@ -39,12 +39,24 @@ export function ButtonsMenu() {
         <span className="text-[#b8b8b8] text-sm font-manrope">
           Secondary Button
         </span>
-        <Button
-          variant="secondary"
-          className="w-fit"
-        >
-          Button
-        </Button>
+        {(() => {
+          const [{ isDragging }, drag] = useDrag(() => ({
+            type: "COMPONENT",
+            item: { type: "button" },
+            collect: (monitor) => ({
+              isDragging: monitor.isDragging(),
+            }),
+          }));
+          return (
+            <Button
+              ref={drag}
+              variant="secondary"
+              className="w-fit"
+            >
+              Button
+            </Button>
+          );
+        })()}
       </div>
 
       {/* Outline Button */}
@@ -52,12 +64,24 @@ export function ButtonsMenu() {
         <span className="text-[#b8b8b8] text-sm font-manrope">
           Outline Button
         </span>
-        <Button
-          variant="outline"
-          className="w-fit"
-        >
-          Button
-        </Button>
+        {(() => {
+          const [{ isDragging }, drag] = useDrag(() => ({
+            type: "COMPONENT",
+            item: { type: "button" },
+            collect: (monitor) => ({
+              isDragging: monitor.isDragging(),
+            }),
+          }));
+          return (
+            <Button
+              ref={drag}
+              variant="outline"
+              className="w-fit"
+            >
+              Button
+            </Button>
+          );
+        })()}
       </div>
 
       {/* Ghost Button */}
@@ -65,23 +89,47 @@ export function ButtonsMenu() {
         <span className="text-[#b8b8b8] text-sm font-manrope">
           Ghost Button
         </span>
-        <Button
-          variant="ghost"
-          className="w-fit text-white"
-        >
-          Button
-        </Button>
+        {(() => {
+          const [{ isDragging }, drag] = useDrag(() => ({
+            type: "COMPONENT",
+            item: { type: "button" },
+            collect: (monitor) => ({
+              isDragging: monitor.isDragging(),
+            }),
+          }));
+          return (
+            <Button
+              ref={drag}
+              variant="ghost"
+              className="w-fit text-white"
+            >
+              Button
+            </Button>
+          );
+        })()}
       </div>
 
       {/* Link Button */}
       <div className="flex flex-col space-y-2">
         <span className="text-[#b8b8b8] text-sm font-manrope">Link Button</span>
-        <Button
-          variant="link"
-          className="w-fit text-white"
-        >
-          Button
-        </Button>
+        {(() => {
+          const [{ isDragging }, drag] = useDrag(() => ({
+            type: "COMPONENT",
+            item: { type: "button" },
+            collect: (monitor) => ({
+              isDragging: monitor.isDragging(),
+            }),
+          }));
+          return (
+            <Button
+              ref={drag}
+              variant="link"
+              className="w-fit text-white"
+            >
+              Button
+            </Button>
+          );
+        })()}
       </div>
     </div>
   );

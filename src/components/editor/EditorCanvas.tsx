@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils";
 import { Stage, Layer, Rect, Image as KonvaImage } from "react-konva";
 import { useDrop } from "react-dnd";
 import { useEffect, useRef, useState } from "react";
+import { Section } from "@/types"; // Import Section type if needed
 
 interface EditorCanvasProps {
   className?: string;
@@ -14,15 +15,16 @@ export function EditorCanvas({ className, imageSrc }: EditorCanvasProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
   const [components, setComponents] = useState<
-    { type: string; src?: string }[]
-  >([]); // Add `src` for images
+    { type: string; src?: string; label?: string }[]
+  >([]); // Add `src` and `label` for images and icons
   const [loadedImages, setLoadedImages] = useState<
     { id: number; img: HTMLImageElement }[]
   >([]);
 
   const [{ isOver }, drop] = useDrop(() => ({
-    accept: "COMPONENT",
-    drop: (item: { type: string; src?: string }) => {
+    accept: ["COMPONENT", "SECTION", "ICON"], // Accept ICON type
+    drop: (item: { type: string; src?: string; label?: string }) => {
+      // Add label for icons
       setComponents((prev) => [...prev, item]);
       if (item.type === "image" && item.src) {
         // Preload the image
@@ -31,6 +33,14 @@ export function EditorCanvas({ className, imageSrc }: EditorCanvasProps) {
         img.onload = () => {
           setLoadedImages((prev) => [...prev, { id: prev.length, img }]);
         };
+      }
+      // Handle section type
+      if (item.type === "section") {
+        setComponents((prev) => [...prev, { type: "section" }]);
+      }
+      // Handle icon type
+      if (item.type === "icon") {
+        setComponents((prev) => [...prev, { type: "icon", label: item.label }]); // Add icon to components
       }
     },
     collect: (monitor) => ({
@@ -82,6 +92,10 @@ export function EditorCanvas({ className, imageSrc }: EditorCanvasProps) {
             <button>Button Component</button>
           ) : comp.type === "image" ? (
             <p>Image Component</p>
+          ) : comp.type === "section" ? (
+            <div className="section">Section Component</div>
+          ) : comp.type === "icon" ? (
+            <p>Icon Component: {comp.label}</p>
           ) : (
             "Unknown Component"
           )}

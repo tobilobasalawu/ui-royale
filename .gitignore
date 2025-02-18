@@ -45,3 +45,7 @@ next-env.d.ts
 /firestore.ts
 src/lib/firebase.ts
 src/lib/firestore.ts
+
+# clerk configuration (can include secrets)
+/.clerk/
+

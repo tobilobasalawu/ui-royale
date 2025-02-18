@@ -11,6 +11,8 @@ import {
 } from "@clerk/nextjs";
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
+import { DndProvider } from "react-dnd";
+import { HTML5Backend } from "react-dnd-html5-backend";
 
 const marcellus = Marcellus({
   variable: "--font-marcellus",
@@ -28,19 +30,25 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const onDragEnd = (result: any) => {
+    // Handle the drag end event
+  };
+
   return (
     <ClerkProvider>
-      <html lang="en">
-        <body
-          className={`${marcellus.variable} ${manrope.variable} antialiased`}
-        >
-          <SignedOut>
-            <SignInButton />
-          </SignedOut>
-          <SignedIn>{/* Remove the UserButton to hide the icon */}</SignedIn>
-          {children}
-        </body>
-      </html>
+      <DndProvider backend={HTML5Backend}>
+        <html lang="en">
+          <body
+            className={`${marcellus.variable} ${manrope.variable} antialiased`}
+          >
+            <SignedOut>
+              <SignInButton />
+            </SignedOut>
+            <SignedIn>{/* Remove the UserButton to hide the icon */}</SignedIn>
+            {children}
+          </body>
+        </html>
+      </DndProvider>
     </ClerkProvider>
   );
 }

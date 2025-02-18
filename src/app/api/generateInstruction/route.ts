@@ -2,36 +2,61 @@ import { NextResponse } from "next/server";
 import OpenAI from "openai";
 
 const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY, // Store API key in .env.local
+  apiKey: process.env.OPENAI_API_KEY,
 });
 
 export async function POST() {
   try {
     console.log("API called: Generating instruction...");
 
-    const prompt = `You are an AI that provides UI design challenges. 
-    Given that the user UI components can only drag and drop the component name, generate a short and fun instruction for the user to create a design using them in 30 seconds. 
-    tell them that the drag and drop ui doesnt work thatyou chnage the ion to text. so if try to drag and drop th eicon only the name of the icon appears and telll them the after 30 seconds the,
-    program will stop them and generate score for them. Tell them you decide what score they get after, add words like skibidi, pop, yk what what am saying. To make it fun. 
-    Also metion that you're the boss that everything in this game is runned and control by you. You can stop the editor from working if you want to can freeze the components.
-    Make sure you explain it to them. Tell them is better to drag as much components as they can on the canvas to get higer score. Add emojis as well.
-`;
+    const prompt = `You are an AI that provides UI design challenges. Given that the user can only drag and drop component names (icons will appear as text), generate a short, fun instruction with these requirements:
+    1. Explain they have 30 seconds to create a design
+    2. Mention icons appear as text names
+    3. Add Gen-Z slang like "skibidi", "pop", "no cap"
+    4. Position yourself as the all-powerful game boss
+    5. Encourage dragging many components for higher scores
+    6. Include emojis and humor
+    7. Keep it under 150 characters`;
 
     const response = await openai.chat.completions.create({
       model: "gpt-4",
-      messages: [{ role: "system", content: prompt }],
+      messages: [
+        {
+          role: "system",
+          content: prompt,
+        },
+      ],
+      max_tokens: 200,
     });
 
-    console.log("AI Response:", response);
+    if (!response.choices[0]?.message?.content) {
+      throw new Error("No content in OpenAI response");
+    }
 
-    return NextResponse.json({
-      instruction: response.choices[0].message.content,
-    });
+    return new NextResponse(
+      JSON.stringify({ instruction: response.choices[0].message.content }),
+      {
+        status: 200,
+        headers: {
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
+        },
+      }
+    );
   } catch (error) {
     console.error("Error generating instruction:", error);
-    return NextResponse.json(
-      { error: "Failed to generate instruction." },
-      { status: 500 }
+    return new NextResponse(
+      JSON.stringify({
+        error: "Failed to generate instruction",
+        details: error.message,
+      }),
+      {
+        status: 500,
+        headers: {
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
+        },
+      }
     );
   }
 }

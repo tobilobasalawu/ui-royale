@@ -35,7 +35,7 @@ export default function RootLayout({
     const isSignedIn = true; // Replace with actual sign-in check
 
     if (isSignedIn) {
-      router.push("/");
+      router.push("/editor");
     }
   }, [router]);
 

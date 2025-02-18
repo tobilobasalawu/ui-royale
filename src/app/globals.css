@@ -70,3 +70,9 @@ body {
     @apply bg-background text-foreground;
     }
 }
+
+   @media (max-width: 768px) {
+     .flex-col {
+       flex-direction: column;
+     }
+   }

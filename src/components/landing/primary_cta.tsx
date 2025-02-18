@@ -1,12 +1,16 @@
 import { RippleButton } from "@/components/magicui/ripple-button";
+import { SignInButton } from "@clerk/nextjs";
 
 export function PrimaryCta() {
     return (
-        <RippleButton
+      <SignInButton>
+            <RippleButton
             className="font-marcellus px-6 py-3 bg-primary-gradient rounded-md uppercase text-[#111111] text-xl border border-[#9C8BF9] shadow-hero-button transition-transform hover:scale-105"
             rippleColor="#111111"
-            duration=".5s">
+            duration=".5s"
+            >
             Start
-        </RippleButton>
+            </RippleButton>
+      </SignInButton>
     );
 }

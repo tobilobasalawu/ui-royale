@@ -1,19 +1,33 @@
-import { Header } from "@/components/editor/Header";
+// app/editor/page.tsx (Protected Page)
+"use client";
+import { useAuth, useUser } from "@clerk/nextjs";
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 import { EditorLayout } from "@/components/editor/EditorLayout";
+import { Header } from "@/components/editor/Header";
 
 export default function EditorPage() {
+  const { isLoaded, userId } = useAuth();
+  const router = useRouter();
+  const { user } = useUser();
+
+  useEffect(() => {
+    if (isLoaded && !userId) {
+      router.push("/");
+    }
+  }, [isLoaded, userId, router]);
+
+  if (!isLoaded || !userId) return null;
+
   return (
     <div className="min-h-screen flex flex-col">
       <Header
-        prompt="home page for a social media agency's website"
+        prompt="HOME PAGE FOR A SOCIAL MEDIA AGENCY'S WEBSITE"
         timeLeft="00:00"
-        player1="A"
-        player2="B"
+        player1={user?.imageUrl || "/defaultImage.png"}
+        player2="/defaultImage.png"
       />
-      <div className="flex-1 flex flex-col md:flex-row">
-        <EditorLayout />
-        {/* Add any additional responsive components or layout adjustments here */}
-      </div>
+      <EditorLayout />
     </div>
   );
 }

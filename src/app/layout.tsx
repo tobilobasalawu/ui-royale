@@ -28,17 +28,6 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const router = useRouter();
-
-  useEffect(() => {
-    // Assuming you have a way to check if the user is signed in
-    const isSignedIn = true; // Replace with actual sign-in check
-
-    if (isSignedIn) {
-      router.push("/editor");
-    }
-  }, [router]);
-
   return (
     <ClerkProvider>
       <html lang="en">
@@ -48,9 +37,7 @@ export default function RootLayout({
           <SignedOut>
             <SignInButton />
           </SignedOut>
-          <SignedIn>
-            <UserButton />
-          </SignedIn>
+          <SignedIn>{/* Remove the UserButton to hide the icon */}</SignedIn>
           {children}
         </body>
       </html>

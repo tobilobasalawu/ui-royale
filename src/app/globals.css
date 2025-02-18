@@ -76,3 +76,12 @@ body {
        flex-direction: column;
      }
    }
+
+  /* Add these animation delay utilities if not already present */
+  .animation-delay-200 {
+      animation-delay: 200ms;
+  }
+
+  .animation-delay-400 {
+      animation-delay: 400ms;
+  }

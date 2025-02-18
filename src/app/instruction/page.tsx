@@ -1,4 +1,5 @@
 "use client";
+import { RippleButton } from "@/components/magicui/ripple-button";
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
@@ -34,12 +35,13 @@ export default function InstructionPage() {
         <p className="text-xl text-center px-6 max-w-2xl">{instruction}</p>
       )}
       <div className="mb-4" />
-      <PrimaryCta
-        className="mt-10 px-6 py-3 bg-blue-500 text-white rounded-lg"
-        onClick={() => router.push("/editor")}
+      <RippleButton
+        className="font-marcellus px-6 py-3 bg-primary-gradient rounded-md uppercase text-[#111111] text-xl border border-[#9C8BF9] shadow-hero-button transition-transform hover:scale-105"
+        rippleColor="#111111"
+        duration=".5s"
       >
         Start Designing
-      </PrimaryCta>
+      </RippleButton>
     </main>
   );
 }

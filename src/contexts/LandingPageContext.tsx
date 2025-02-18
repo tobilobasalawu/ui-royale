@@ -39,33 +39,22 @@ export function LandingPageContextProvider({
 
   function generateLink(event: React.FormEvent) {
     event.preventDefault();
-
-    if (!playerOne.name || playerOne.name.trim() === "") {
+    if (!playerOne.name?.trim()) {
       setError(true);
       return;
     }
 
-    setError(false);
-    const uniqueId = nanoid(10);
+    const uniqueId = nanoid(6); // Generate a short lobby ID
+    const inviteLink = `${window.location.origin}/lobby?lobbyCode=${uniqueId}`;
 
-    setPlayerOne((prev) => ({
-      ...prev,
-      id: uniqueId,
-    }));
-
-    // Store lobby in Firebase
-    const lobbyRef = ref(db, `lobbies/${uniqueId}`);
-    set(lobbyRef, {
-      code: uniqueId,
-      players: { [uniqueId]: { name: playerOne.name, id: uniqueId } },
-      status: "waiting",
-      createdAt: Date.now(),
+    navigator.clipboard.writeText(inviteLink).then(() => {
+      alert("Invite link copied! Open it.");
     });
 
-    // Generate invite link and update state
-    const link = `${window.location.origin}/lobby?code=${uniqueId}`;
-    setInviteLink(link);
+    setPlayerOne({ name: playerOne.name, id: uniqueId });
+    setIsOverlayOpen(false);
   }
+
 
   return (
     <LandingPageContext.Provider

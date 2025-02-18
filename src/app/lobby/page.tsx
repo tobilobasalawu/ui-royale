@@ -1,24 +1,42 @@
 "use client";
 
-import { Header } from "@/components/editor/Header";
-import { RippleButton } from "@/components/magicui/ripple-button";
-import Image from "next/image";
 import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
+import Image from "next/image";
+import { RippleButton } from "@/components/magicui/ripple-button";
 
 export default function LobbyPage() {
-  const [timeLeft, setTimeLeft] = useState(300); // 5 minutes in seconds
+  const router = useRouter();
+  const [timeLeft, setTimeLeft] = useState(300); // 5 minutes
+  const [opponentReady, setOpponentReady] = useState(false);
+  const [lobbyCode, setLobbyCode] = useState<string | null>(null);
 
+  // Detect invite link
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const code = params.get("lobbyCode");
+
+    if (code) {
+      setLobbyCode(code);
+      // Simulate opponent joining after 1 second (for demo purposes)
+      setTimeout(() => setOpponentReady(true), 1000);
+    }
+  }, []);
+
+  // Redirect to /editor after 3 seconds when opponent is ready
+  useEffect(() => {
+    if (opponentReady) {
+      setTimeout(() => {
+        router.push("/instruction");
+      }, 2000);
+    }
+  }, [opponentReady, router]);
+
+  // Timer Countdown
   useEffect(() => {
     const timer = setInterval(() => {
-      setTimeLeft((prev) => {
-        if (prev <= 0) {
-          clearInterval(timer);
-          return 0;
-        }
-        return prev - 1;
-      });
+      setTimeLeft((prev) => (prev > 0 ? prev - 1 : 0));
     }, 1000);
-
     return () => clearInterval(timer);
   }, []);
 
@@ -60,7 +78,7 @@ export default function LobbyPage() {
             <div className="absolute w-[200px] h-[200px] rounded-full bg-[#1A1A1A] opacity-30 animate-ping animation-delay-400" />
           </div>
 
-          {/* Waiting Text */}
+          {/* Lobby UI */}
           <div className="relative z-10 text-center">
             <RippleButton
               className="text-white font-marcellus text-2xl bg-transparent"
@@ -68,10 +86,22 @@ export default function LobbyPage() {
               disabled
             >
               <div className="flex flex-col gap-2 border-none">
-                <span>Waiting for</span>
-                <span>opponent...</span>
+                {opponentReady ? (
+                  <span className="text-green-500">Your opponent is ready</span>
+                ) : (
+                  <>
+                    <span>Waiting for</span>
+                    <span>opponent...</span>
+                  </>
+                )}
               </div>
             </RippleButton>
+
+            {lobbyCode && (
+              <p className="text-gray-500 mt-4 text-sm">
+                Lobby Code: {lobbyCode}
+              </p>
+            )}
           </div>
         </div>
       </div>

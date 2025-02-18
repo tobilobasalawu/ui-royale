@@ -1,30 +1,35 @@
 // app/editor/page.tsx (Protected Page)
 "use client";
-import { useAuth, useUser } from "@clerk/nextjs";
-import { useRouter } from "next/navigation";
-import { useEffect } from "react";
 import { EditorLayout } from "@/components/editor/EditorLayout";
 import { Header } from "@/components/editor/Header";
+import { useState, useEffect } from "react";
 
 export default function EditorPage() {
-  const { isLoaded, userId } = useAuth();
-  const router = useRouter();
-  const { user } = useUser();
+  const [timeLeft, setTimeLeft] = useState(30);
 
   useEffect(() => {
-    if (isLoaded && !userId) {
-      router.push("/");
-    }
-  }, [isLoaded, userId, router]);
+    const timer = setInterval(() => {
+      setTimeLeft((prev) => (prev > 0 ? prev - 1 : 0));
+    }, 1000);
 
-  if (!isLoaded || !userId) return null;
+    return () => clearInterval(timer);
+  }, []);
+
+  // New effect to redirect when timeLeft reaches zero
+  useEffect(() => {
+    if (timeLeft === 0) {
+      window.location.href = "/scoring"; // Redirect to scoring page
+    }
+  }, [timeLeft]);
 
   return (
     <div className="min-h-screen flex flex-col">
       <Header
-        prompt="HOME PAGE FOR A SOCIAL MEDIA AGENCY'S WEBSITE"
-        timeLeft="00:00"
-        player1={user?.imageUrl || "/defaultImage.png"}
+        prompt="Design Challenge"
+        timeLeft={`${Math.floor(timeLeft / 60)
+          .toString()
+          .padStart(2, "0")}:${(timeLeft % 60).toString().padStart(2, "0")}`}
+        player1={"/defaultImage.png"}
         player2="/defaultImage.png"
       />
       <EditorLayout />

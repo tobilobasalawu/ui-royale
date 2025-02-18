@@ -56,12 +56,7 @@ export function Header({
         <div className="flex items-center space-x-2 w-[108px]">
           {/* Depth 3: Player 1 Frame */}
           <div className="flex items-center justify-center w-9 h-9 rounded-full bg-[#adaef8]">
-            {/* Use player1 as an image */}
-            <img
-              src={player1}
-              alt="Player 1"
-              className="w-full h-full rounded-full object-cover"
-            />
+            {"T"}
           </div>
 
           {/* Depth 3: VS Text */}

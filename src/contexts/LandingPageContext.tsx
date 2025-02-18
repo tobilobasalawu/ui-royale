@@ -1,7 +1,5 @@
 import { createContext, useState } from "react";
 import { nanoid } from "nanoid";
-import { ref, set } from "firebase/database";
-import { db } from "@/lib/firebase";
 import { useRouter } from "next/navigation";
 
 export interface LandingPageContextType {

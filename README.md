@@ -39,7 +39,7 @@ In this **solo design showdown**, you step into the **UI arena**—but there's a
 
 ---
 
-**P.S.** Score too low? AI might just generate your code in Comic Sans. 😈  
+**P.S.** Score too low? AI might laugh at you. 😈  
 
 ---
 

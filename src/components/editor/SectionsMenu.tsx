@@ -13,7 +13,7 @@ export function SectionsMenu() {
                         className="w-[220px] bg-[#292929] cursor-pointer hover:bg-[#333333] transition-colors"
                         style={{ height: section.height }}
                     />
-                    <span className="text-[#b8b8b8] text-sm font-satoshi">
+                    <span className="text-[#b8b8b8] text-sm font-manrope">
                         {section.title}
                     </span>
                 </div>

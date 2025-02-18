@@ -19,7 +19,7 @@ export function IconsMenu() {
                     <div className="flex items-center justify-center w-12 h-12 bg-[#292929] rounded-lg">
                         {icon.icon}
                     </div>
-                    <span className="text-[#b8b8b8] text-sm font-satoshi">
+                    <span className="text-[#b8b8b8] text-sm font-manrope">
                         {icon.label}
                     </span>
                 </div>

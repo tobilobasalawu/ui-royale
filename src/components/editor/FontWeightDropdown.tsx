@@ -30,7 +30,7 @@ export function FontWeightDropdown({
                         className
                     )}>
                     {/* Depth 1: Text content */}
-                    <span className="w-[58px] text-[#e8e8e8] text-xs font-satoshi leading-3 truncate">
+                    <span className="w-[58px] text-[#e8e8e8] text-xs font-manrope leading-3 truncate">
                         {value}
                     </span>
 
@@ -56,7 +56,7 @@ export function FontWeightDropdown({
                                 className={({ active }) =>
                                     cn(
                                         "relative cursor-pointer select-none py-2 px-3",
-                                        "text-[#e8e8e8] font-satoshi",
+                                        "text-[#e8e8e8] font-manrope",
                                         active && "bg-[#282828]"
                                     )
                                 }>

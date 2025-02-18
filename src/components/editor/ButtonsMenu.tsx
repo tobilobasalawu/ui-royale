@@ -7,7 +7,7 @@ export function ButtonsMenu() {
         <>
             {/* Basic Button */}
             <div className="flex flex-col space-y-2">
-                <span className="text-[#b8b8b8] text-sm font-satoshi">
+                <span className="text-[#b8b8b8] text-sm font-manrope">
                     Basic Button
                 </span>
                 <Button
@@ -19,7 +19,7 @@ export function ButtonsMenu() {
 
             {/* Secondary Button */}
             <div className="flex flex-col space-y-2">
-                <span className="text-[#b8b8b8] text-sm font-satoshi">
+                <span className="text-[#b8b8b8] text-sm font-manrope">
                     Secondary Button
                 </span>
                 <Button
@@ -31,7 +31,7 @@ export function ButtonsMenu() {
 
             {/* Outline Button */}
             <div className="flex flex-col space-y-2">
-                <span className="text-[#b8b8b8] text-sm font-satoshi">
+                <span className="text-[#b8b8b8] text-sm font-manrope">
                     Outline Button
                 </span>
                 <Button
@@ -43,7 +43,7 @@ export function ButtonsMenu() {
 
             {/* Ghost Button */}
             <div className="flex flex-col space-y-2">
-                <span className="text-[#b8b8b8] text-sm font-satoshi">
+                <span className="text-[#b8b8b8] text-sm font-manrope">
                     Ghost Button
                 </span>
                 <Button
@@ -55,7 +55,7 @@ export function ButtonsMenu() {
 
             {/* Link Button */}
             <div className="flex flex-col space-y-2">
-                <span className="text-[#b8b8b8] text-sm font-satoshi">
+                <span className="text-[#b8b8b8] text-sm font-manrope">
                     Link Button
                 </span>
                 <Button

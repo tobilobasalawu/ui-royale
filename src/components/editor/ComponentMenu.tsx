@@ -113,7 +113,7 @@ function MenuButton({
                     {icon}
                 </span>
             )}
-            <span className="text-[#e8e8e8] text-xs font-satoshi mt-2">
+            <span className="text-[#e8e8e8] text-xs font-manrope mt-2">
                 {label}
             </span>
         </button>

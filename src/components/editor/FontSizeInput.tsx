@@ -30,7 +30,7 @@ export function FontSizeInput({
                 type="number"
                 value={value}
                 onChange={handleInputChange}
-                className="w-full h-3 bg-transparent text-[#e8e8e8] text-xs text-center font-satoshi leading-3 focus:outline-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+                className="w-full h-3 bg-transparent text-[#e8e8e8] text-xs text-center font-manrope leading-3 focus:outline-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
                 min="1"
             />
             <Image

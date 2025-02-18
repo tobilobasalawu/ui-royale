@@ -35,7 +35,7 @@ export function LineHeightInput({
                     type="number"
                     value={value}
                     onChange={handleChange}
-                    className="w-[34px] h-3 bg-transparent text-[#e8e8e8] text-xs font-satoshi leading-3 text-center focus:outline-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+                    className="w-[34px] h-3 bg-transparent text-[#e8e8e8] text-xs font-manrope leading-3 text-center focus:outline-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
                     min="0"
                     step="0.1"
                 />

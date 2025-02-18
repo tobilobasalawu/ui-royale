@@ -12,7 +12,7 @@ export function ImagesMenu() {
                     height={48}
                 /> */}
                 <ImageIcon className="w-4 h-4 text-[#b8b8b8]" />
-                <span className="text-[#b8b8b8] text-sm font-satoshi mt-2">
+                <span className="text-[#b8b8b8] text-sm font-manrope mt-2">
                     Add Image
                 </span>
             </div>

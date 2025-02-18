@@ -19,7 +19,7 @@ export function ColorPicker({ value, onChange, className }: ColorPickerProps) {
                 className
             )}>
             {/* Depth 1: Color Text */}
-            <span className="w-[26px] h-[10px] text-[#b8b8b8] text-[10px] font-satoshi font-medium leading-[10px]">
+            <span className="w-[26px] h-[10px] text-[#b8b8b8] text-[10px] font-manrope font-medium leading-[10px]">
                 Color
             </span>
 
@@ -44,7 +44,7 @@ export function ColorPicker({ value, onChange, className }: ColorPickerProps) {
                                 onChange(newColor);
                             }
                         }}
-                        className="flex-1 bg-transparent text-[#e8e8e8] text-center text-xs font-satoshi leading-3 focus:outline-none uppercase"
+                        className="flex-1 bg-transparent text-[#e8e8e8] text-center text-xs font-manrope leading-3 focus:outline-none uppercase"
                     />
 
                     {isPickerOpen && (

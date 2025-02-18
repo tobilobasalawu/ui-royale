@@ -43,7 +43,7 @@ export function FontFamilyDropdown({
                     {/* Depth 1: Container Frame */}
                     <div className="flex flex-col pb-[0.8px] w-[110px]">
                         {/* Depth 2: Font family text */}
-                        <span className="text-[#e8e8e8] text-xs font-satoshi leading-4 truncate">
+                        <span className="text-[#e8e8e8] text-xs font-manrope leading-4 truncate">
                             {value}
                         </span>
                     </div>
@@ -70,7 +70,7 @@ export function FontFamilyDropdown({
                                 className={({ active }) =>
                                     cn(
                                         "relative cursor-pointer select-none py-2 px-3",
-                                        "text-[#e8e8e8] font-satoshi",
+                                        "text-[#e8e8e8] font-manrope",
                                         active && "bg-[#282828]"
                                     )
                                 }>

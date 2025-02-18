@@ -34,7 +34,7 @@ export function BorderRadiusCustomization({
                 className
             )}>
             {/* Depth 1: Border Radius Text */}
-            <span className="w-[64px] h-[10px] text-[#b8b8b8] text-[10px] font-satoshi font-medium leading-[10px]">
+            <span className="text-[#b8b8b8] text-[10px] font-manrope font-medium leading-[10px]">
                 Border Radius
             </span>
 
@@ -47,7 +47,7 @@ export function BorderRadiusCustomization({
                         type="number"
                         value={radius}
                         onChange={(e) => onRadiusChange(Number(e.target.value))}
-                        className="w-full bg-transparent text-[#e8e8e8] text-xs text-center font-satoshi leading-3 focus:outline-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+                        className="w-full bg-transparent text-[#e8e8e8] text-xs text-center font-manrope leading-3 focus:outline-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
                         min="0"
                     />
                 </div>
@@ -59,7 +59,7 @@ export function BorderRadiusCustomization({
                         onChange={onPositionChange}>
                         <Listbox.Button className="flex items-center justify-between w-[86px] h-[26px] px-2 rounded-r-lg border border-[#383838]">
                             {/* Depth 3: Position text */}
-                            <span className="w-[64px] text-[#e8e8e8] text-xs font-satoshi leading-3">
+                            <span className="w-[64px] text-[#e8e8e8] text-xs font-manrope leading-3">
                                 {position}
                             </span>
 
@@ -79,7 +79,7 @@ export function BorderRadiusCustomization({
                                     value={pos}
                                     className={({ active }) =>
                                         cn(
-                                            "px-2 py-1 text-xs font-satoshi cursor-pointer",
+                                            "px-2 py-1 text-xs font-manrope cursor-pointer",
                                             active ? "bg-[#383838]" : "",
                                             "text-[#e8e8e8]"
                                         )

@@ -65,7 +65,7 @@ export function SizeCustomization({
                 {/* Depth 3: W label container */}
                 <div className="pb-[0.8px]">
                     {/* Depth 4: W label */}
-                    <span className="text-[#e8e8e8] text-xs font-satoshi leading-4">
+                    <span className="text-[#e8e8e8] text-xs font-manrope leading-4">
                         W
                     </span>
                 </div>
@@ -78,7 +78,7 @@ export function SizeCustomization({
                         onChange={(e) =>
                             handleWidthChange(parseInt(e.target.value))
                         }
-                        className="w-full bg-transparent text-[#e8e8e8] text-xs text-center font-satoshi leading-4 focus:outline-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+                        className="w-full bg-transparent text-[#e8e8e8] text-xs text-center font-manrope leading-4 focus:outline-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
                         min="0"
                     />
                 </div>
@@ -89,7 +89,7 @@ export function SizeCustomization({
                 {/* Depth 3: H label container */}
                 <div className="pb-[0.8px]">
                     {/* Depth 4: H label */}
-                    <span className="text-[#e8e8e8] text-xs font-satoshi leading-4">
+                    <span className="text-[#e8e8e8] text-xs font-manrope leading-4">
                         H
                     </span>
                 </div>
@@ -102,7 +102,7 @@ export function SizeCustomization({
                         onChange={(e) =>
                             handleHeightChange(parseInt(e.target.value))
                         }
-                        className="w-full bg-transparent text-[#e8e8e8] text-xs text-center font-satoshi leading-4 focus:outline-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+                        className="w-full bg-transparent text-[#e8e8e8] text-xs text-center font-manrope leading-4 focus:outline-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
                         min="0"
                     />
                 </div>
@@ -111,7 +111,7 @@ export function SizeCustomization({
             {/* Depth 2: Padding group */}
             <div className="flex flex-col w-[106px] space-y-1.5">
                 {/* Depth 3: Padding label */}
-                <span className="text-[#b8b8b8] text-[10px] font-satoshi font-medium leading-[10px]">
+                <span className="text-[#b8b8b8] text-[10px] font-manrope font-medium leading-[10px]">
                     Padding
                 </span>
                 {/* Depth 3: Padding input */}
@@ -123,7 +123,7 @@ export function SizeCustomization({
                         onChange={(e) =>
                             handlePaddingChange(parseInt(e.target.value))
                         }
-                        className="w-full bg-transparent text-[#e8e8e8] text-xs text-center font-satoshi leading-3 focus:outline-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+                        className="w-full bg-transparent text-[#e8e8e8] text-xs text-center font-manrope leading-3 focus:outline-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
                         min="0"
                     />
                 </div>
@@ -132,7 +132,7 @@ export function SizeCustomization({
             {/* Depth 2: Margin group */}
             <div className="flex flex-col w-[106px] space-y-1.5">
                 {/* Depth 3: Margin label */}
-                <span className="text-[#b8b8b8] text-[10px] font-satoshi font-medium leading-[10px]">
+                <span className="text-[#b8b8b8] text-[10px] font-manrope font-medium leading-[10px]">
                     Margin
                 </span>
                 {/* Depth 3: Margin input */}
@@ -144,7 +144,7 @@ export function SizeCustomization({
                         onChange={(e) =>
                             handleMarginChange(parseInt(e.target.value))
                         }
-                        className="w-full bg-transparent text-[#e8e8e8] text-xs text-center font-satoshi leading-3 focus:outline-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+                        className="w-full bg-transparent text-[#e8e8e8] text-xs text-center font-manrope leading-3 focus:outline-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
                         min="0"
                     />
                 </div>

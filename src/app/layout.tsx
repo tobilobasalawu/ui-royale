@@ -2,6 +2,8 @@
 import React from "react";
 import { Manrope, Marcellus } from "next/font/google";
 import "./globals.css";
+import { DndProvider } from "react-dnd";
+import { HTML5Backend } from "react-dnd-html5-backend";
 
 const marcellus = Marcellus({
     variable: "--font-marcellus",
@@ -19,12 +21,18 @@ export default function RootLayout({
 }: {
     children: React.ReactNode;
 }) {
+    const onDragEnd = (result: any) => {
+        // Handle the drag end event
+    };
+
     return (
-        <html lang="en">
-            <body
-                className={`${marcellus.variable} ${manrope.variable} antialiased`}>
-                {children}
-            </body>
-        </html>
+        <DndProvider backend={HTML5Backend}>
+            <html lang="en">
+                <body
+                    className={`${marcellus.variable} ${manrope.variable} antialiased`}>
+                    {children}
+                </body>
+            </html>
+        </DndProvider>
     );
 }

@@ -1,30 +1,43 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { Stage, Layer, Rect } from "react-konva";
+import { Stage, Layer, Rect, Image as KonvaImage } from "react-konva";
 import { useDrop } from "react-dnd";
 import { useEffect, useRef, useState } from "react";
 
 interface EditorCanvasProps {
   className?: string;
+  imageSrc?: string;
 }
 
-export function EditorCanvas({ className }: EditorCanvasProps) {
+export function EditorCanvas({ className, imageSrc }: EditorCanvasProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
-  const [components, setComponents] = useState<{ type: string }[]>([]);
+  const [components, setComponents] = useState<
+    { type: string; src?: string }[]
+  >([]); // Add `src` for images
+  const [loadedImages, setLoadedImages] = useState<
+    { id: number; img: HTMLImageElement }[]
+  >([]);
 
   const [{ isOver }, drop] = useDrop(() => ({
     accept: "COMPONENT",
-    drop: (item: { type: string }) => {
+    drop: (item: { type: string; src?: string }) => {
       setComponents((prev) => [...prev, item]);
+      if (item.type === "image" && item.src) {
+        // Preload the image
+        const img = new window.Image();
+        img.src = item.src;
+        img.onload = () => {
+          setLoadedImages((prev) => [...prev, { id: prev.length, img }]);
+        };
+      }
     },
     collect: (monitor) => ({
       isOver: monitor.isOver(),
     }),
   }));
 
-  // Update canvas dimensions when container size changes
   useEffect(() => {
     const updateDimensions = () => {
       if (containerRef.current) {
@@ -35,28 +48,23 @@ export function EditorCanvas({ className }: EditorCanvasProps) {
       }
     };
 
-    // Initial size
     updateDimensions();
 
-    // Add resize observer
     const resizeObserver = new ResizeObserver(updateDimensions);
     if (containerRef.current) {
       resizeObserver.observe(containerRef.current);
     }
 
-    // Cleanup
     return () => {
       resizeObserver.disconnect();
     };
   }, []);
 
   return (
-    // Depth 2: Canvas Frame
     <div
       ref={drop}
       className={cn(
-        "w-full h-full bg-[#121212] overflow-hidden",
-        "flex items-center justify-center",
+        "w-full h-full bg-[#121212] overflow-hidden flex items-center justify-center",
         className
       )}
       style={{
@@ -66,25 +74,31 @@ export function EditorCanvas({ className }: EditorCanvasProps) {
         background: isOver ? "#f0f0f0" : "white",
       }}
     >
-      {/* Render dropped components */}
       {components.map((comp, index) => (
         <div key={index}>
-          {comp.type === "text" ? <p>Text Component</p> : "Unknown Component"}
+          {comp.type === "text" ? (
+            <p>Text Component</p>
+          ) : comp.type === "button" ? (
+            <button>Button Component</button>
+          ) : comp.type === "image" ? (
+            <p>Image Component</p>
+          ) : (
+            "Unknown Component"
+          )}
         </div>
       ))}
-      {/* Depth 3: Konva Stage */}
+
       <Stage
         width={dimensions.width}
         height={dimensions.height}
         style={{ backgroundColor: "#121212" }}
       >
-        {/* Background Layer */}
         <Layer>
           <Rect
-            x={20} // Add some left padding
-            y={20} // Add some top padding
-            width={dimensions.width - 40} // Full width minus padding
-            height={dimensions.height - 40} // Full height minus padding
+            x={20}
+            y={20}
+            width={dimensions.width - 40}
+            height={dimensions.height - 40}
             fill="#222222"
             cornerRadius={8}
             shadowColor="rgba(0, 0, 0, 0.1)"
@@ -94,8 +108,18 @@ export function EditorCanvas({ className }: EditorCanvasProps) {
           />
         </Layer>
 
-        {/* Content Layer - This is where dragged components will be added */}
-        <Layer>{/* Components will be rendered here */}</Layer>
+        <Layer>
+          {loadedImages.map(({ id, img }) => (
+            <KonvaImage
+              key={id}
+              image={img}
+              x={50}
+              y={50}
+              width={100}
+              height={100}
+            />
+          ))}
+        </Layer>
       </Stage>
     </div>
   );

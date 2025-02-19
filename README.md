@@ -47,3 +47,5 @@ In this **solo design showdown**, you step into the **UI arena**—but there's a
 Frontend development shouldn’t feel like a repetitive grind. With **UI Royale**, we’re making it **fun, fast, and competitive**—while proving that **AI + Superflex is the future of UI development.**  
 
 So, are you ready to **challenge the AI, beat the clock, and generate legendary code?** Let’s go! 🚀  
+
+Our submission for superflex hackathon
